@@ -5,12 +5,18 @@
 package com.dmist.appmdmq.controller;
 
 import com.dmist.appmdmq.model.MapAplicaciones;
+import com.dmist.appmdmq.model.Tecnologias;
 import com.dmist.appmdmq.service.AppService;
+import com.dmist.appmdmq.service.TecnologiasService;
 import java.util.List;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +34,10 @@ public class AppController {
     @Autowired
     private AppService appService;
     
-    @GetMapping
+    @Autowired
+    private TecnologiasService tecnologiasService;
+    
+    @GetMapping("/obtenerApp")
     public List<MapAplicaciones> obtenerTodos(){
         return appService.obtenerTodos();
     }
@@ -38,4 +47,21 @@ public class AppController {
         appService.grabarApp(app);
         return app;
     }
+    
+    @GetMapping("/obtenerTecnologias")
+    public List<Tecnologias> obtenerTecnologias(){
+        return tecnologiasService.listarTecnologias();
+    }
+    
+    @PostMapping("/grabarTecnologia")
+    public Tecnologias grabarTecnologia(@RequestBody Tecnologias tecnologia){
+        try {
+           
+            return  tecnologiasService.grabarTecnologia(tecnologia);
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+       
 }
