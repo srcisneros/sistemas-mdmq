@@ -20,8 +20,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(value = "aplicaciones")
 
 public class MapAplicaciones {
-      Map<String, Object> mapAplicaciones = new LinkedHashMap<>();
-    
+    Map<String, Object> mapAplicaciones = new LinkedHashMap<>();
         
     @JsonAnyGetter
     public Map<String, Object> getApp(){

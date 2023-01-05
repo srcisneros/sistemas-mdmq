@@ -4,6 +4,7 @@
  */
 package com.dmist.appmdmq.service;
 
+import com.dmist.appmdmq.model.Aplicaciones;
 import com.dmist.appmdmq.model.MapAplicaciones;
 import com.dmist.appmdmq.repository.AppRepository;
 import java.text.ParseException;
@@ -25,7 +26,7 @@ public class AppService {
      @Autowired
      private AppRepository appRepository;
      
-     public List<MapAplicaciones> obtenerTodos(){
+     public List<MapAplicaciones> obtenerApp(){
          return appRepository.findAll();
      }
      

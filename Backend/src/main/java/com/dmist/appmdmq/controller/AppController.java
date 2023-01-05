@@ -40,8 +40,8 @@ public class AppController {
     private TecnologiasService tecnologiasService;
     
     @GetMapping("/obtenerApp")
-    public List<MapAplicaciones> obtenerTodos(){
-        return appService.obtenerTodos();
+    public List<MapAplicaciones> obtenerApp(){
+        return appService.obtenerApp();
     }
     
     @PostMapping("/grabarApp")
