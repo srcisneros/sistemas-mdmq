@@ -4,8 +4,8 @@
  */
 package com.dmist.appmdmq.service;
 
-import com.dmist.appmdmq.model.Tecnologias;
-import com.dmist.appmdmq.repository.TecnologiasRepository;
+import com.dmist.appmdmq.model.ServiciosExpuestos;
+import com.dmist.appmdmq.repository.ServiciosExpuestosRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,25 +15,24 @@ import org.springframework.stereotype.Service;
  * @author oportero
  */
 @Service
-public class TecnologiasService {
-
+public class ServiciosExpuestosService {
     @Autowired
-    private TecnologiasRepository tecnologiasRepository;
+    private ServiciosExpuestosRepository serviciosExpuestosRepository;
 
-    public List<Tecnologias> listarTecnologias() {
+    public List<ServiciosExpuestos> listarServiciosExpuestos() {
         try {
-            return tecnologiasRepository.findAll();
+            return serviciosExpuestosRepository.findAll();
         } catch (Exception e) {
             return null;
         }
     }
 
-    public Tecnologias grabarTecnologia(Tecnologias tecnologias) {
+    public ServiciosExpuestos grabarSeviciosExpuestos(ServiciosExpuestos serviciosExpuestos) {
         try {
-            return tecnologiasRepository.save(tecnologias);
+            return serviciosExpuestosRepository.save(serviciosExpuestos);
         } catch (Exception e) {
             System.err.println(e);
             return null;
         }
-    }
+    }    
 }

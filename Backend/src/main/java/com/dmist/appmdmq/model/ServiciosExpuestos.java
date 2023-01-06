@@ -14,10 +14,12 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * @author oportero
  */
 @Data
-public class Tecnologias implements Serializable{
-    @Id
-    @Field("_id")
-    private String clave;
-    private String nombre;
+public class ServiciosExpuestos implements Serializable{
+@Id
+@Field("_id")
+private String identificador;
+private String urlDesarrollo;
+private String urlTest;
+private String descripcion;
 
 }

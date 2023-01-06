@@ -27,7 +27,12 @@ public class AppService {
      private AppRepository appRepository;
      
      public List<MapAplicaciones> obtenerApp(){
-         return appRepository.findAll();
+         try {
+            return appRepository.findAll();
+             
+         } catch (Exception e) {
+             return null;
+         }
      }
      
      public void grabarApp(MapAplicaciones mapAplicaciones) {

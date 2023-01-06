@@ -20,15 +20,20 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UsuariosService {
+
     @Autowired
-     private UsuariosRepository usuariosRepository;
-     
-     public List<MapUsuarios> obtenerUsuarios(){
-         return usuariosRepository.findAll();
-     }
-     
-     
-     public void grabarApp(MapUsuarios mapUsuarios) {
+    private UsuariosRepository usuariosRepository;
+
+    public List<MapUsuarios> obtenerUsuarios() {
+        try {
+            return usuariosRepository.findAll();
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void grabarApp(MapUsuarios mapUsuarios) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             var fecha = mapUsuarios.getMapUsuarios().get("fechaCreacion").toString();
