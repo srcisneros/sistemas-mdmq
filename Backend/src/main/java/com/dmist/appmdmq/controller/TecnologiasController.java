@@ -4,20 +4,13 @@
  */
 package com.dmist.appmdmq.controller;
 
-import com.dmist.appmdmq.model.MapAplicaciones;
 import com.dmist.appmdmq.model.Tecnologias;
-import com.dmist.appmdmq.service.AppService;
 import com.dmist.appmdmq.service.TecnologiasService;
 import java.util.List;
-import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,26 +18,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author srcisnerosv
+ * @author oportero
  */
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("*")
 @RequiredArgsConstructor
+public class TecnologiasController {
 
-public class AppController {
     @Autowired
-    private AppService appService;
+    private TecnologiasService tecnologiasService;
     
-    @GetMapping("/obtenerApp")
-    public List<MapAplicaciones> obtenerApp(){
-        return appService.obtenerApp();
+    @GetMapping("/obtenerTecnologias")
+    public List<Tecnologias> obtenerTecnologias(){
+        return tecnologiasService.listarTecnologias();
     }
     
-    @PostMapping("/grabarApp")
-    public MapAplicaciones grabarApp(@RequestBody MapAplicaciones app) {
-        appService.grabarApp(app);
-        return app;
+    @PostMapping("/grabarTecnologia")
+    public Tecnologias grabarTecnologia(@RequestBody Tecnologias tecnologia){
+        try {
+           
+            return  tecnologiasService.grabarTecnologia(tecnologia);
+
+        } catch (Exception e) {
+            return null;
+        }
     }
+       
     
 }

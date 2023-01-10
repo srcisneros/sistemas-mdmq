@@ -6,6 +6,7 @@ package com.dmist.appmdmq.service;
 
 import com.dmist.appmdmq.model.Tecnologias;
 import com.dmist.appmdmq.repository.TecnologiasRepository;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,12 @@ public class TecnologiasService {
 
     public Tecnologias grabarTecnologia(Tecnologias tecnologias) {
         try {
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            var fechaCrea = tecnologias.getFechaCreacion();
+//            var fechaModifica = tecnologias.getFechaModificacion();
+//            tecnologias.setFechaCreacion(sdf.parse(fechaCrea));
+//            tecnologias.setFechaModificacion(sdf.parse(fechaModifica));
+
             return tecnologiasRepository.save(tecnologias);
         } catch (Exception e) {
             System.err.println(e);
