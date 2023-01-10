@@ -4,9 +4,8 @@
  */
 package com.dmist.appmdmq.service;
 
-import com.dmist.appmdmq.model.Tecnologias;
-import com.dmist.appmdmq.repository.TecnologiasRepository;
-import java.text.SimpleDateFormat;
+import com.dmist.appmdmq.model.TecnologiasUtilizadas;
+import com.dmist.appmdmq.repository.TecnologiasUtilizadasRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,25 +15,25 @@ import org.springframework.stereotype.Service;
  * @author oportero
  */
 @Service
-public class TecnologiasService {
-
+public class TecnologiasUtilizadasService {
     @Autowired
-    private TecnologiasRepository tecnologiasRepository;
+    private TecnologiasUtilizadasRepository tecnologiasUtilizadasRepository;
 
-    public List<Tecnologias> listarTecnologias() {
+    public List<TecnologiasUtilizadas> listarTecnologiasUtilizadas() {
         try {
-            return tecnologiasRepository.findAll();
+            return tecnologiasUtilizadasRepository.findAll();
         } catch (Exception e) {
             return null;
         }
     }
 
-    public Tecnologias grabarTecnologia(Tecnologias tecnologias) {
+    public TecnologiasUtilizadas grabarTecnologiasUtilizadas(TecnologiasUtilizadas tecnologiasUtilizadas) {
         try {
-            return tecnologiasRepository.save(tecnologias);
+            return tecnologiasUtilizadasRepository.save(tecnologiasUtilizadas);
         } catch (Exception e) {
             System.err.println(e);
             return null;
         }
     }
+    
 }
