@@ -28,12 +28,12 @@ public class TecnologiasUtilizadasController {
     @Autowired
     private TecnologiasUtilizadasService tecnologiasUtilizadasService;
     
-    @GetMapping("/obtenerTecnologias")
+    @GetMapping("/obtenerTecnologiasUtilizadas")
     public List<TecnologiasUtilizadas> obtenerTecnologiasUtilizadas(){
         return tecnologiasUtilizadasService.listarTecnologiasUtilizadas();
     }
     
-    @PostMapping("/grabarTecnologia")
+    @PostMapping("/grabarTecnologiasUtilizadas")
     public TecnologiasUtilizadas grabarTecnologia(@RequestBody TecnologiasUtilizadas tecnologiasUtilizadas){
         try {
            
