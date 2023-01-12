@@ -27,7 +27,7 @@ public class ServiciosExpuestosService {
         }
     }
 
-    public ServiciosExpuestos grabarSeviciosExpuestos(ServiciosExpuestos serviciosExpuestos) {
+    public ServiciosExpuestos grabarServiciosExpuestos(ServiciosExpuestos serviciosExpuestos) {
         try {
             return serviciosExpuestosRepository.save(serviciosExpuestos);
         } catch (Exception e) {
